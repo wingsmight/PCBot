@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  server:
+    image: "igorkondratev/pcbot-server"
+    container_name: server
+    expose:
+      - "8000"
+    ports:
+      - "8000:8000"
+
+  client:
+    image: "igorkondratev/pcbot"
+    container_name: client
+    expose:
+      - "8880"
+    ports:
+      - "8880:8880"
+    links:
+      - server
